@@ -1,0 +1,118 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: rgb(243, 244, 246);
+  color: rgb(17, 24, 39);
+  overflow-x: hidden; /* Ahiya horizontal scroll / white space remove thase */
+  width: 100%;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.main-content {
+  flex: 1;
+  width: 100%;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid rgb(229, 231, 235);
+  font-size: 14px;
+}
+
+.admin-table th {
+  background-color: rgb(249, 250, 251);
+  color: rgb(75, 85, 99);
+  font-weight: 600;
+}
+
+.status-badge {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.status-badge.pending {
+  background-color: rgb(255, 243, 205);
+  color: rgb(133, 100, 4);
+}
+
+.status-badge.delivered {
+  background-color: rgb(212, 237, 218);
+  color: rgb(21, 87, 36);
+}
+
+.action-btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* Responsive Media Queries for Mobile & Tablets */
+@media (max-width: 1024px) {
+  .product-grid,
+  .categories-grid,
+  .features-section {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Badha grids ne mobile ma 2 columns ya 1 column ma adjust karva mate */
+  .product-grid,
+  .categories-grid,
+  .features-section {
+    grid-template-columns: repeat(2, 1fr) !important;
+    padding: 0 15px !important;
+    gap: 15px !important;
+  }
+  .cart-content,
+  .admin-container {
+    flex-direction: column !important;
+  }
+  .footer-content {
+    grid-template-columns: 1fr !important;
+    padding: 30px 20px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-grid,
+  .categories-grid,
+  .features-section {
+    grid-template-columns: 1fr !important;
+    padding: 0 12px !important;
+  }
+  /* Mobile table responsive fix */
+  @media (max-width: 768px) {
+    .admin-recent-orders,
+    .cart-content {
+      overflow-x: auto !important;
+      display: block !important;
+    }
+    .admin-table {
+      min-width: 450px !important;
+    }
+  }
+}
