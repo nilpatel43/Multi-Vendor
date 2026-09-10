@@ -32,7 +32,7 @@ const Register = () => {
     try {
       const config = { headers: { "Content-Type": "application/json" } };
       const { data } = await axios.post(
-        "http://localhost:5000/api/auth/register",
+        "https://multi-vendor-wmbb.onrender.com/api/auth/register",
         { name, email, password, phone, address, role },
         config,
       );

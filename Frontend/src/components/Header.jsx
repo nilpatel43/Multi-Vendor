@@ -17,7 +17,7 @@ const Header = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const { data } = await axios.get("http://localhost:5000/api/products");
+        const { data } = await axios.get("https://multi-vendor-wmbb.onrender.com/api/products");
         setAllProducts(data);
       } catch (error) {
         console.error("Error fetching products for search");
@@ -291,7 +291,7 @@ const Header = () => {
                     }}
                   >
                     <img
-                      src={`http://localhost:5000${item.image}`}
+                      src={`https://multi-vendor-wmbb.onrender.com${item.image}`}
                       alt={item.name}
                       style={{
                         width: "40px",

@@ -14,7 +14,7 @@ const Categories = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const { data } = await axios.get("http://localhost:5000/api/products");
+        const { data } = await axios.get("https://multi-vendor-wmbb.onrender.com/api/products");
         setProducts(data);
         const uniqueCategories = [
           ...new Set(data.map((item) => item.category)),
@@ -190,7 +190,7 @@ const Categories = () => {
                           }}
                         >
                           <img
-                            src={`http://localhost:5000${item.image}`}
+                            src={`https://multi-vendor-wmbb.onrender.com${item.image}`}
                             alt={item.name}
                             className="prod-img"
                             style={{

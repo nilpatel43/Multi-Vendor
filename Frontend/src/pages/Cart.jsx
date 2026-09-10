@@ -110,7 +110,7 @@ const Cart = () => {
                   }}
                 >
                   <img
-                    src={`http://localhost:5000${item.image}`}
+                    src={`https://multi-vendor-wmbb.onrender.com${item.image}`}
                     alt={item.name}
                     style={{
                       width: "100%",

@@ -12,7 +12,7 @@ const Home = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const { data } = await axios.get("http://localhost:5000/api/products");
+        const { data } = await axios.get("https://multi-vendor-wmbb.onrender.com/api/products");
         const trendingList = data.slice(-8).reverse();
         setProducts(trendingList);
         setLoading(false);
@@ -347,7 +347,7 @@ const Home = () => {
                   }}
                 >
                   <img
-                    src={`http://localhost:5000${item.image}`}
+                    src={`https://multi-vendor-wmbb.onrender.com${item.image}`}
                     alt={item.name}
                     className="prod-img"
                     style={{

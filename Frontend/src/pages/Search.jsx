@@ -13,7 +13,7 @@ const Search = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const { data } = await axios.get("http://localhost:5000/api/products");
+        const { data } = await axios.get("https://multi-vendor-wmbb.onrender.com/api/products");
         const searchLower = keyword.toLowerCase();
         const filtered = data.filter(
           (p) =>
@@ -140,7 +140,7 @@ const Search = () => {
                   }}
                 >
                   <img
-                    src={`http://localhost:5000${item.image}`}
+                    src={`https://multi-vendor-wmbb.onrender.com${item.image}`}
                     alt={item.name}
                     style={{
                       width: "100%",

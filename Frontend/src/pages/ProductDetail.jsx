@@ -16,7 +16,7 @@ const ProductDetail = () => {
     const fetchProduct = async () => {
       try {
         const { data } = await axios.get(
-          `http://localhost:5000/api/products/${id}`,
+          `https://multi-vendor-wmbb.onrender.com/api/products/${id}`,
         );
         setProduct(data);
         setLoading(false);
@@ -136,7 +136,7 @@ const ProductDetail = () => {
           }}
         >
           <img
-            src={`http://localhost:5000${product.image}`}
+            src={`https://multi-vendor-wmbb.onrender.com${product.image}`}
             alt={product.name}
             style={{ width: "100%", height: "100%", objectFit: "contain" }}
           />

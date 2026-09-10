@@ -38,7 +38,7 @@ const AddProduct = () => {
           Authorization: `Bearer ${userInfo.token}`,
         },
       };
-      await axios.post("http://localhost:5000/api/products", formData, config);
+      await axios.post("https://multi-vendor-wmbb.onrender.com/api/products", formData, config);
 
       setIsError(false);
       setMessage("Product Added Successfully! Redirecting...");
