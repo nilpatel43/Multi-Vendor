@@ -19,7 +19,7 @@ const Login = () => {
     try {
       const config = { headers: { "Content-Type": "application/json" } };
       const { data } = await axios.post(
-        "https://multi-vendor-wmbb.onrender.com/api/auth/login",
+        "https://multi-vendor-1.onrender.com/api/auth/login",
         { email, password },
         config,
       );

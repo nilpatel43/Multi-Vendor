@@ -31,7 +31,7 @@ const VendorDashboard = () => {
       const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
 
       const productRes = await axios.get(
-        "https://multi-vendor-wmbb.onrender.com/api/products",
+        "https://multi-vendor-1.onrender.com/api/products",
         config,
       );
       const myProducts = productRes.data.filter((p) => {
@@ -42,7 +42,7 @@ const VendorDashboard = () => {
 
       try {
         const orderRes = await axios.get(
-          "https://multi-vendor-wmbb.onrender.com/api/orders",
+          "https://multi-vendor-1.onrender.com/api/orders",
           config,
         );
         const myProductIds = myProducts.map((p) => p._id.toString());
@@ -73,7 +73,7 @@ const VendorDashboard = () => {
         const config = {
           headers: { Authorization: `Bearer ${userInfo.token}` },
         };
-        await axios.delete(`https://multi-vendor-wmbb.onrender.com/api/products/${id}`, config);
+        await axios.delete(`https://multi-vendor-1.onrender.com/api/products/${id}`, config);
         alert("Product deleted successfully");
         fetchVendorData();
       } catch (error) {
@@ -100,7 +100,7 @@ const VendorDashboard = () => {
         },
       };
 
-      await axios.post("https://multi-vendor-wmbb.onrender.com/api/products", formData, config);
+      await axios.post("https://multi-vendor-1.onrender.com/api/products", formData, config);
       alert("Product added successfully!");
       setName("");
       setDescription("");
@@ -444,7 +444,7 @@ const VendorDashboard = () => {
                         <tr key={item._id}>
                           <td>
                             <img
-                              src={`https://multi-vendor-wmbb.onrender.com${item.image}`}
+                              src={`https://multi-vendor-1.onrender.com${item.image}`}
                               alt={item.name}
                               style={{
                                 width: "50px",

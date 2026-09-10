@@ -41,7 +41,7 @@ const OrderSuccess = () => {
         },
       };
       await axios.post(
-        "https://multi-vendor-wmbb.onrender.com/api/orders",
+        "https://multi-vendor-1.onrender.com/api/orders",
         {
           orderItems: cartItems,
           paymentMethod,

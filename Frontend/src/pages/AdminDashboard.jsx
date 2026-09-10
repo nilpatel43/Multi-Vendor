@@ -20,7 +20,7 @@ const AdminDashboard = () => {
     try {
       const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
       const { data } = await axios.get(
-        "https://multi-vendor-wmbb.onrender.com/api/users",
+        "https://multi-vendor-1.onrender.com/api/users",
         config,
       );
       setUsers(data);
@@ -37,7 +37,7 @@ const AdminDashboard = () => {
         const config = {
           headers: { Authorization: `Bearer ${userInfo.token}` },
         };
-        await axios.delete(`https://multi-vendor-wmbb.onrender.com/api/users/${id}`, config);
+        await axios.delete(`https://multi-vendor-1.onrender.com/api/users/${id}`, config);
         alert("Removed successfully!");
         fetchUsers();
       } catch (error) {

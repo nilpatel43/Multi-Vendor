@@ -17,7 +17,7 @@ export const CartProvider = ({ children }) => {
           headers: { Authorization: `Bearer ${userInfo.token}` },
         };
         const { data } = await axios.get(
-          "https://multi-vendor-wmbb.onrender.com/api/cart",
+          "https://multi-vendor-1.onrender.com/api/cart",
           config,
         );
 
@@ -60,7 +60,7 @@ export const CartProvider = ({ children }) => {
           },
         };
         await axios.post(
-          "https://multi-vendor-wmbb.onrender.com/api/cart",
+          "https://multi-vendor-1.onrender.com/api/cart",
           { cartItems: updatedItems },
           config,
         );

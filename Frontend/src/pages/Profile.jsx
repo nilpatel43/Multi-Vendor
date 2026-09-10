@@ -50,7 +50,7 @@ const Profile = () => {
       };
 
       const { data } = await axios.put(
-        "https://multi-vendor-wmbb.onrender.com/api/users/profile",
+        "https://multi-vendor-1.onrender.com/api/users/profile",
         payload,
         config,
       );

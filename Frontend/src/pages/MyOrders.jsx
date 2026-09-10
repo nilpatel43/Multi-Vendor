@@ -12,7 +12,7 @@ const MyOrders = () => {
     try {
       const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
       const { data } = await axios.get(
-        "https://multi-vendor-wmbb.onrender.com/api/orders/myorders",
+        "https://multi-vendor-1.onrender.com/api/orders/myorders",
         config,
       );
       setOrders(data);
@@ -37,7 +37,7 @@ const MyOrders = () => {
         const config = {
           headers: { Authorization: `Bearer ${userInfo.token}` },
         };
-        await axios.delete(`https://multi-vendor-wmbb.onrender.com/api/orders/${id}`, config);
+        await axios.delete(`https://multi-vendor-1.onrender.com/api/orders/${id}`, config);
         alert("Order Cancelled Successfully!");
         fetchOrders();
       } catch (error) {

@@ -12,7 +12,7 @@ const AllProducts = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const { data } = await axios.get("https://multi-vendor-wmbb.onrender.com/api/products");
+        const { data } = await axios.get("https://multi-vendor-1.onrender.com/api/products");
         setProducts(data);
         setLoading(false);
       } catch (error) {
@@ -120,7 +120,7 @@ const AllProducts = () => {
                   }}
                 >
                   <img
-                    src={`https://multi-vendor-wmbb.onrender.com${item.image}`}
+                    src={`https://multi-vendor-1.onrender.com${item.image}`}
                     alt={item.name}
                     className="prod-img"
                     style={{
