@@ -13,7 +13,7 @@ dotenv.config();
 connectDB();
 
 const app = express();
-
+//nil Patel project
 app.use(cors());
 app.use(express.json());
 
