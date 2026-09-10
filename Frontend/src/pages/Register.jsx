@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import axios from "axios";
+import api from "../api";
 
 const Register = () => {
   const [name, setName] = useState("");
@@ -31,8 +31,8 @@ const Register = () => {
 
     try {
       const config = { headers: { "Content-Type": "application/json" } };
-      const { data } = await axios.post(
-        "https://multi-vendor-1.onrender.com/api/auth/register",
+      const { data } = await api.post(
+        "/api/auth/register",
         { name, email, password, phone, address, role },
         config,
       );

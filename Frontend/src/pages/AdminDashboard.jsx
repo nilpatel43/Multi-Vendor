@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import api from "../api";
 
 const AdminDashboard = () => {
   const [users, setUsers] = useState([]);
@@ -19,8 +19,8 @@ const AdminDashboard = () => {
   const fetchUsers = async () => {
     try {
       const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-      const { data } = await axios.get(
-        "https://multi-vendor-1.onrender.com/api/users",
+      const { data } = await api.get(
+        "/api/users",
         config,
       );
       setUsers(data);
@@ -37,7 +37,7 @@ const AdminDashboard = () => {
         const config = {
           headers: { Authorization: `Bearer ${userInfo.token}` },
         };
-        await axios.delete(`https://multi-vendor-1.onrender.com/api/users/${id}`, config);
+        await api.delete(`/api/users/${id}`, config);
         alert("Removed successfully!");
         fetchUsers();
       } catch (error) {

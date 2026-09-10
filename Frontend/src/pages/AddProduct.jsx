@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import axios from "axios";
+import api from "../api";
 
 const AddProduct = () => {
   const [name, setName] = useState("");
@@ -38,7 +38,7 @@ const AddProduct = () => {
           Authorization: `Bearer ${userInfo.token}`,
         },
       };
-      await axios.post("https://multi-vendor-1.onrender.com/api/products", formData, config);
+      await api.post("/api/products", formData, config);
 
       setIsError(false);
       setMessage("Product Added Successfully! Redirecting...");

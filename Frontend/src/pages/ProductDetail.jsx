@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
-import axios from "axios";
+import api, { API_URL } from "../api";
 import { useCart } from "../context/CartContext";
 
 const ProductDetail = () => {
@@ -15,8 +15,8 @@ const ProductDetail = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const { data } = await axios.get(
-          `https://multi-vendor-1.onrender.com/api/products/${id}`,
+        const { data } = await api.get(
+          `/api/products/${id}`,
         );
         setProduct(data);
         setLoading(false);
@@ -136,7 +136,7 @@ const ProductDetail = () => {
           }}
         >
           <img
-            src={`https://multi-vendor-1.onrender.com${product.image}`}
+            src={`${API_URL}${product.image}`}
             alt={product.name}
             style={{ width: "100%", height: "100%", objectFit: "contain" }}
           />

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
+import { API_URL } from "../api";
 
 const Cart = () => {
   const { cartItems, increaseQty, decreaseQty, removeFromCart } = useCart();
@@ -110,7 +111,7 @@ const Cart = () => {
                   }}
                 >
                   <img
-                    src={`https://multi-vendor-1.onrender.com${item.image}`}
+                    src={`${API_URL}${item.image}`}
                     alt={item.name}
                     style={{
                       width: "100%",

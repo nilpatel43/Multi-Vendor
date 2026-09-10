@@ -1,5 +1,5 @@
 import React, { createContext, useState, useContext, useEffect } from "react";
-import axios from "axios";
+import api from "../api";
 
 const CartContext = createContext();
 
@@ -16,8 +16,8 @@ export const CartProvider = ({ children }) => {
         const config = {
           headers: { Authorization: `Bearer ${userInfo.token}` },
         };
-        const { data } = await axios.get(
-          "https://multi-vendor-1.onrender.com/api/cart",
+        const { data } = await api.get(
+          "/api/cart",
           config,
         );
 
@@ -59,8 +59,8 @@ export const CartProvider = ({ children }) => {
             Authorization: `Bearer ${userInfo.token}`,
           },
         };
-        await axios.post(
-          "https://multi-vendor-1.onrender.com/api/cart",
+        await api.post(
+          "/api/cart",
           { cartItems: updatedItems },
           config,
         );

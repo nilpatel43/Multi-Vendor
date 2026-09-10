@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import api from "../api";
 
 const Profile = () => {
   const [userInfo, setUserInfo] = useState({});
@@ -49,8 +49,8 @@ const Profile = () => {
         ...(userInfo.role === "vendor" && { shopName, shopNumber }),
       };
 
-      const { data } = await axios.put(
-        "https://multi-vendor-1.onrender.com/api/users/profile",
+      const { data } = await api.put(
+        "/api/users/profile",
         payload,
         config,
       );

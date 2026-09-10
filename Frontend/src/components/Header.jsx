@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import axios from "axios";
+import api, { API_URL } from "../api";
 import { useCart } from "../context/CartContext";
 
 const Header = () => {
@@ -17,7 +17,7 @@ const Header = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const { data } = await axios.get("https://multi-vendor-1.onrender.com/api/products");
+        const { data } = await api.get("/api/products");
         setAllProducts(data);
       } catch (error) {
         console.error("Error fetching products for search");
@@ -291,7 +291,7 @@ const Header = () => {
                     }}
                   >
                     <img
-                      src={`https://multi-vendor-1.onrender.com${item.image}`}
+                      src={`${API_URL}${item.image}`}
                       alt={item.name}
                       style={{
                         width: "40px",

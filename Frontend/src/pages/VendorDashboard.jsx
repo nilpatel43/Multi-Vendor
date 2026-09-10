@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
+import api, { API_URL } from "../api";
 
 const VendorDashboard = () => {
   const [activeTab, setActiveTab] = useState("overview");
@@ -30,8 +30,8 @@ const VendorDashboard = () => {
     try {
       const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
 
-      const productRes = await axios.get(
-        "https://multi-vendor-1.onrender.com/api/products",
+      const productRes = await api.get(
+        "/api/products",
         config,
       );
       const myProducts = productRes.data.filter((p) => {
@@ -41,8 +41,8 @@ const VendorDashboard = () => {
       setProducts(myProducts);
 
       try {
-        const orderRes = await axios.get(
-          "https://multi-vendor-1.onrender.com/api/orders",
+        const orderRes = await api.get(
+          "/api/orders",
           config,
         );
         const myProductIds = myProducts.map((p) => p._id.toString());
@@ -73,7 +73,7 @@ const VendorDashboard = () => {
         const config = {
           headers: { Authorization: `Bearer ${userInfo.token}` },
         };
-        await axios.delete(`https://multi-vendor-1.onrender.com/api/products/${id}`, config);
+        await api.delete(`/api/products/${id}`, config);
         alert("Product deleted successfully");
         fetchVendorData();
       } catch (error) {
@@ -100,7 +100,7 @@ const VendorDashboard = () => {
         },
       };
 
-      await axios.post("https://multi-vendor-1.onrender.com/api/products", formData, config);
+      await api.post("/api/products", formData, config);
       alert("Product added successfully!");
       setName("");
       setDescription("");
@@ -444,7 +444,7 @@ const VendorDashboard = () => {
                         <tr key={item._id}>
                           <td>
                             <img
-                              src={`https://multi-vendor-1.onrender.com${item.image}`}
+                              src={`${API_URL}${item.image}`}
                               alt={item.name}
                               style={{
                                 width: "50px",

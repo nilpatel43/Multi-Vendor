@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
+import api from "../api";
 import { useCart } from "../context/CartContext";
 
 const OrderSuccess = () => {
@@ -40,8 +40,8 @@ const OrderSuccess = () => {
           Authorization: `Bearer ${userInfo.token}`,
         },
       };
-      await axios.post(
-        "https://multi-vendor-1.onrender.com/api/orders",
+      await api.post(
+        "/api/orders",
         {
           orderItems: cartItems,
           paymentMethod,

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import axios from "axios";
+import api from "../api";
 import { useCart } from "../context/CartContext"; // ૧. CartContext ઈમ્પોર્ટ કર્યું
 
 const Login = () => {
@@ -18,8 +18,8 @@ const Login = () => {
     e.preventDefault();
     try {
       const config = { headers: { "Content-Type": "application/json" } };
-      const { data } = await axios.post(
-        "https://multi-vendor-1.onrender.com/api/auth/login",
+      const { data } = await api.post(
+        "/api/auth/login",
         { email, password },
         config,
       );

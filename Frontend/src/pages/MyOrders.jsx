@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
-import axios from "axios";
+import api from "../api";
 import { useNavigate } from "react-router-dom";
 
 const MyOrders = () => {
@@ -11,8 +11,8 @@ const MyOrders = () => {
   const fetchOrders = useCallback(async () => {
     try {
       const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-      const { data } = await axios.get(
-        "https://multi-vendor-1.onrender.com/api/orders/myorders",
+      const { data } = await api.get(
+        "/api/orders/myorders",
         config,
       );
       setOrders(data);
@@ -37,7 +37,7 @@ const MyOrders = () => {
         const config = {
           headers: { Authorization: `Bearer ${userInfo.token}` },
         };
-        await axios.delete(`https://multi-vendor-1.onrender.com/api/orders/${id}`, config);
+        await api.delete(`/api/orders/${id}`, config);
         alert("Order Cancelled Successfully!");
         fetchOrders();
       } catch (error) {
